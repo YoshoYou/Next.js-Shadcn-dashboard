@@ -13,12 +13,16 @@ import {
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
+import { SidebarTrigger, useSidebar } from "./ui/sidebar";
 const Navbar = () => {
   const { setTheme } = useTheme();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { toggleSidebar } = useSidebar();
   return (
     <nav className="p-4 px-8 flex items-center justify-between">
       {/* LEFT */}
-      collapseButton
+      <SidebarTrigger />
+      {/* <Button variant="outline" onClick={toggleSidebar}>Custom Button to trigger the sidebar</Button> */}
       {/* RIGHT */}
       <div className="flex items-center gap-4">
         <Link href="/"></Link>
