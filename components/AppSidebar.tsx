@@ -78,13 +78,14 @@ const AppSidebar = () => {
             <SidebarMenuButton asChild>
               <Link href="/">
                 <Image
-                  src="./globe.svg"
+                  src="/images/image-2.jpg"
                   loading="eager"
                   alt="logo"
-                  width={100}
-                  height={100}
+                  width={50}
+                  height={70}
+                  className="rounded-full object-cover"
                 />
-                <span>Lama</span>
+                <span>Aya</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
