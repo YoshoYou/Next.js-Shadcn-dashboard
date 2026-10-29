@@ -19,7 +19,7 @@ const Navbar = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { toggleSidebar } = useSidebar();
   return (
-    <nav className="p-4 px-8 flex items-center justify-between">
+    <nav className="p-4 px-8 flex items-center justify-between sticky top-0 bg-background z-10">
       {/* LEFT */}
       <SidebarTrigger />
       {/* <Button variant="outline" onClick={toggleSidebar}>Custom Button to trigger the sidebar</Button> */}

@@ -1,5 +1,7 @@
+import AppLineChart from "@/components/AppLineChart";
 import CardList from "@/components/CardList";
 import EditUser from "@/components/EditUser";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
   Breadcrumb,
@@ -122,19 +124,19 @@ const SingleUserPage = () => {
                 </p>
                 <Progress value={66} />
               </div>
-              <div className="flex-items-center gap-2">
+              <div className="flex items-center gap-6">
                 <span className="font-bold">Username</span>
                 <span>John doe</span>
               </div>
-              <div className="flex-items-center gap-2">
+              <div className="flex items-center gap-6">
                 <span className="font-bold">Email</span>
                 <span>Johndoe@gmail.com</span>
               </div>
-              <div className="flex-items-center gap-2">
+              <div className="flex items-center gap-6">
                 <span className="font-bold">Phone number</span>
                 <span>1 234 598</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-6">
                 <span className="font-bold">Role</span>
                 <Badge>Admin</Badge>
               </div>
@@ -151,9 +153,26 @@ const SingleUserPage = () => {
         {/* RIGHT */}
         <div className="w-full xl:w-2/3">
           {/* USER CARD CONTAINER */}
-          <div className="bg-primary-foreground p-4 rounded-lg"></div>
+          <div className="bg-primary-foreground p-4 rounded-lg space-y-2">
+            <div className="flex items-center gap-2">
+              <Avatar className="size-12 ">
+                <AvatarImage src="../images/image-1.jpg"></AvatarImage>
+                <AvatarFallback>Aya</AvatarFallback>
+              </Avatar>
+              <h1 className="text-xl font-semibold">Aya Jouney</h1>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit
+              asperiores nemo tenetur animi, optio molestias assumenda
+              consequuntur ex sit id quos illo porro similique vitae repellat
+              facere quibusdam aspernatur earum.
+            </p>
+          </div>
           {/* CHART CONTAINER */}
-          <div className="bg-primary-foreground p-4 rounded-lg"></div>
+          <div className="bg-primary-foreground p-4 rounded-lg">
+           <h1 className="text-xl font-semibold">User Activity</h1>
+            <AppLineChart/>
+          </div>
         </div>
       </div>
     </div>

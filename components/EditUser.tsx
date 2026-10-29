@@ -8,11 +8,26 @@ import {
 } from "./ui/sheet";
 
 import z from "zod";
-import { Controller, Form, useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Field, FieldDescription, FieldError, FieldLabel } from "./ui/field";
+import {
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from "./ui/field";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+
 
 const formSchema = z.object({
   username: z
@@ -35,14 +50,14 @@ const EditUser = () => {
       role: "admin",
     },
   });
+
   return (
     <SheetContent>
-      {/* ToDO: Install Form  */}
       <SheetHeader>
         <SheetTitle>Edit User</SheetTitle>
-        <SheetDescription>
-          <Form {...form}>
-            <form className="space-y-4">
+        <SheetDescription asChild>
+          <form className="space-y-4">
+            <FieldGroup>
               <Controller
                 name="username"
                 control={form.control}
@@ -118,28 +133,8 @@ const EditUser = () => {
                   </Field>
                 )}
               />
+
               <Controller
-                name="role"
-                control={form.control}
-                render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor={field.name}>The Role</FieldLabel>
-                    <Input
-                      {...field}
-                      id={field.name}
-                      aria-invalid={fieldState.invalid}
-                    />
-                    <FieldDescription>
-                      Only verified users can be admin
-                    </FieldDescription>
-                    {fieldState.invalid && (
-                      <FieldError errors={[fieldState.error]} />
-                    )}
-                  </Field>
-                )}
-              />
-              {/* TODO: install select  */}
-              {/* <Controller
                 name="role"
                 control={form.control}
                 render={({ field, fieldState }) => (
@@ -147,6 +142,8 @@ const EditUser = () => {
                     orientation="responsive"
                     data-invalid={fieldState.invalid}
                   >
+                    <FieldLabel htmlFor={field.name}>Role</FieldLabel>
+
                     <Select>
                       <SelectTrigger>
                         <SelectValue placeholder="Role" />
@@ -155,16 +152,14 @@ const EditUser = () => {
                         <SelectItem value="admin">Admin</SelectItem>
                         <SelectItem value="user">User</SelectItem>
                         <SelectSeparator />
-
-                        <SelectItem></SelectItem>
                       </SelectContent>
                     </Select>
                   </Field>
                 )}
-              /> */}
+              />
               <Button type="submit">Submit</Button>
-            </form>
-          </Form>
+            </FieldGroup>
+          </form>
         </SheetDescription>
       </SheetHeader>
     </SheetContent>
