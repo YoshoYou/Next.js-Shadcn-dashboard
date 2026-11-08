@@ -41,17 +41,18 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "./ui/collapsible";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const AppSidebar = () => {
   const sidebarItems = [
     {
-      title: "Name",
+      title: "Dashboard",
       url: "/",
       icon: HomeIcon,
     },
     {
-      title: "Inbox",
-      url: "/",
+      title: "Payments",
+      url: "/payment",
       icon: Inbox,
     },
     {
@@ -77,14 +78,10 @@ const AppSidebar = () => {
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link href="/">
-                <Image
-                  src="/images/image-2.jpg"
-                  loading="eager"
-                  alt="logo"
-                  width={50}
-                  height={70}
-                  className="rounded-full object-cover"
-                />
+                <Avatar className="">
+                  <AvatarImage src="/images/image-1.jpg"></AvatarImage>
+                  <AvatarFallback>Aya</AvatarFallback>
+                </Avatar>{" "}
                 <span>Aya</span>
               </Link>
             </SidebarMenuButton>
@@ -105,7 +102,7 @@ const AppSidebar = () => {
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
-                  {item.title==='Inbox' && (
+                  {item.title === "Inbox" && (
                     <SidebarMenuBadge>27</SidebarMenuBadge>
                   )}
                 </SidebarMenuItem>
@@ -179,7 +176,7 @@ const AppSidebar = () => {
         </Collapsible>
 
         {/* NESTED  */}
-          <SidebarGroup>
+        <SidebarGroup>
           <SidebarGroupLabel>Nested Items</SidebarGroupLabel>
 
           <SidebarGroupContent>
@@ -198,7 +195,6 @@ const AppSidebar = () => {
                         <Plus />
                         Add project
                       </Link>
-
                     </SidebarMenuSubButton>
                   </SidebarMenuSubItem>
                   <SidebarMenuSubItem>
@@ -207,14 +203,11 @@ const AppSidebar = () => {
                         <Plus />
                         Add category
                       </Link>
-
                     </SidebarMenuSubButton>
                   </SidebarMenuSubItem>
-
                 </SidebarMenuSub>
               </SidebarMenuItem>
             </SidebarMenu>
-
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
